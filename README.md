@@ -13,123 +13,45 @@ Explanation
 Each laser tag gun consists of 13 3D printed parts. The guns structure uses a middle black frame which holds a majority of the electronic components and microcontroller, while 4 large shells cover both sides of the black frame.
 
 Frame:
+
 ![Frame](https://i.imgur.com/RXxQxVe.png)
+
+Exploded assembly:
+
+![Exploded](https://i.imgur.com/tRYj8iA.png)
 
 Frame with shells and accessories:
 
 ![Full build](https://i.imgur.com/IBLJHwQ.png)
 
-## Black frame 3D printed parts:
+As this was a long time and I did not know any better, I created the 3D models in SketchUp (🤮) and exported them as very very broken STLs. I used Netfabb to fix the models and make them manifold.
+I recommend using Black, White and Clear PLA or ABS plastic at 0.1mm layer height for best results. 
+
+## Electronics
+
+The microcontroller for this project is an Arduino Nano with an ATmega328p chip onboard.
+The following components are required for each laser gun:
+- 1x IR LED  (For signal transmission)
+- 1x 31MM biconvex lens 27MM focal point  (For straightening the IR light from the IR LED)
+- 6x IR Receiver TSOP4838 DIP3  (For receiving transmissions from other laser guns)
+- 1x i2c 16x2 LCD display modules  (For displaying UI to user)
+- 1x YX5300 UART Serial MP3 player  (For playing sounds)
+- 1x MicroSD card  (For storing sounds)
+- 3x DC3v Button Vibrating Motors  (For providing haptic feedback)
+- 6x push buttons  (For navigating UI and reload switches)
+- 1x PAM8403 digital amplifier (For amplifying the audio signal from the MP3 Player)
+  - 1x 4omh speaker
+  - 1x 4.7uF capacitor
+  - (Please note these parts are quite arbitrary and were subject is guesswork, results may vary)
+- 7x 1k ohm resistors (Various pulldown )
+- 1x NPN transistor
 - 
-
-Components:
-- 1x IR LED
-
-## 3D printed parts
-
-I designed the parts in Fusion 360 and exported them as a 3mf.
-The recommended print settings I would use are:
-- 0.1mm layer height
-- Black PLA plastic worked best
-
-## Assembly
-
-
 
 ## Code
 
 The code is very straight forward and simple, but a calibration will need to be done to find the correct threshold.
 ```
-//Definitions to save memory
-//IRIN_2 pin
-#define IRIN_2 A0
-
-//IRIN_1 Interrupt pins
-#define IRIN_1_I1 2
-#define IRIN_1_I2 3
-
-//To find out what value you need to set threshold to, set debug mode to true and turn the wheel clockwise and record the value
-//    then turn the wheel anti-clockwise and record the value. You should set threshold to halfway between the results 
-#define DEBUG_MODE false
-#define THRESHOLD 100
-
-//This variable stores the positio
-int position = 0;
-
-//Setup
-void setup() {
-  //Set pinmodes for IRIN
-  pinMode(IRIN_1_I1, INPUT);
-  pinMode(IRIN_1_I2, INPUT);
-  pinMode(IRIN_2, INPUT);
-
-  //Begin Serial Interface
-  Serial.begin(9600);
-
-  //Attach interrupts to IRIN_1
-  attachInterrupt(digitalPinToInterrupt(IRIN_1_I1), IRIN_1_goingHigh, RISING);
-  attachInterrupt(digitalPinToInterrupt(IRIN_1_I2), IRIN_1_goingLow, FALLING);
-}
-
-void loop() {
-}
-
-//When IRIN_1 goes high
-void IRIN_1_goingHigh()
-{
-  //Get value of IRIN_2
-  int irin_2_val = analogRead(IRIN_2);
-
-  //DEBUG MODE
-  if (DEBUG_MODE)
-  {
-    Serial.println(irin_2_val);
-    return;
-  }
-
-  //Check value against threshold
-  if (irin_2_val > THRESHOLD)
-  {
-    //Going clockwise
-    position++;
-  }
-  else
-  {
-    //Going anticlockwise
-    position--;
-  }
-
-  //Return value to serial monitor
-  Serial.println(position);
-}
-
-//When IRIN_2 goes low
-void IRIN_1_goingLow()
-{
-  //DEBUG MODE
-  if (DEBUG_MODE)
-  {
-    return;
-  }
-
-  //Get value of IRIN_2
-  int irin_2_val = analogRead(IRIN_2);
-
-  //Check value against threshold
-  if (irin_2_val < THRESHOLD)
-  {
-    //Going clockwise
-    position++;
-  }
-  else
-  {
-    //Going anticlockwise
-    position--;
-  }
-
-  //Return value to serial monitor
-  Serial.println(position);
-}
+CODE HERE
 ```
 
 ## Version History
