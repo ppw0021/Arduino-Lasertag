@@ -66,9 +66,13 @@ static int8_t Send_buf[8] = {0} ;
 //Include The folowing Libraries
 //LCD req
 #include <LiquidCrystal_I2C.h>
+#include <IRremote.h>
+#include <SoftwareSerial.h>
+#include <Wire.h>
+
 //IR req
 //Experimental
-#include <IRremote.h>
+
 //Working
 //#include <IRLibDecodeBase.h>
 //#include <IRLibSendBase.h>
@@ -78,8 +82,7 @@ static int8_t Send_buf[8] = {0} ;
 //#include <IRLibCombo.h>
 //#include <IRLibRecv.h>
 //MP3 Req
-#include <SoftwareSerial.h>
-#include <Wire.h>
+
 
 //Define logical pins to words
 #define fireTrigger 7
@@ -142,7 +145,8 @@ int ammoQuota;
 int ammoLeft;
 
 //Define others
-LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
+//LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
+LiquidCrystal_I2C lcd(0x27,20,4);
 IRrecv irrecv(2);
 decode_results results;
 IRsend irsend;
