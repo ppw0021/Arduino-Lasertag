@@ -90,7 +90,7 @@ static int8_t Send_buf[8] = {0} ;
 #define magReload 4
 #define vMotor 5
 #define lowHP 6
-#define irOut 7
+#define irOut 3
 #define ARDUINO_RX A6
 #define ARDUINO_TX 8
 SoftwareSerial mySerial(ARDUINO_RX, ARDUINO_TX);
