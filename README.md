@@ -43,13 +43,12 @@ The following components are required for each laser gun:
   - 1x 4omh speaker
   - 1x 4.7uF capacitor
   - (Please note these parts are quite arbitrary and were subject is guesswork, results may vary)
-- 7x 1k ohm resistors (Various pulldown )
+- 7x 1k ohm resistors (Various pulldown)
 - 1x NPN transistor
 - 
 
 ## Code
 
-The code is very straight forward and simple, but a calibration will need to be done to find the correct threshold.
 ```
 CODE HERE
 ```
