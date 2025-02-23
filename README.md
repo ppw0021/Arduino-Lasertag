@@ -46,6 +46,13 @@ The wiring and connections for each gun is shown below.
 
 ![Layout](https://github.com/user-attachments/assets/f972c199-3519-4340-bbfe-f1ad8ac7d755)
 
+With the wiring and assembly completed, this is how each device looks.
+
+![20250223_203224](https://github.com/user-attachments/assets/4580d53b-7008-476f-b1a1-8eca22e0cfb7)
+
+![20250223_203242](https://github.com/user-attachments/assets/da5c1458-20c1-48f6-81c1-e2c829a68c30)
+
+
 ## Biconvex lens
 
 A biconvex lens is required to convert the dispersed light from the IR led into collimated light. (Basically straightening out the light rays) This is required so that the light behaves similarly to a 'bullet' and travels in a straight line, allowing for an accurate simulation.
