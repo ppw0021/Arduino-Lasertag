@@ -2,7 +2,7 @@
 
 This is an Arduino powered Infrared laser tag set I created. It is powered using an Arduino Nano. The set has 6 primary functions and features such as, ammunition counter, hit-detection from other laser tag guns, IR data analysis, reloading button paired with a slider, LCD user interface and finally a play feedback subsystem as well as features such as 8 different weapons, filtration of teamfire and a health counter.
 
-![PhotoOfGuns](https://i.imgur.com/7ouMkQu.jpeg)
+![Guns](https://github.com/user-attachments/assets/88debcd2-ec43-4b69-94da-1d8358f4dd7f)
 
 ## Description
 
@@ -14,15 +14,15 @@ Each laser tag gun consists of 13 3D printed parts. The guns structure uses a mi
 
 Frame:
 
-![Frame](https://i.imgur.com/RXxQxVe.png)
+![FrameRender](https://github.com/user-attachments/assets/976a61c3-f0de-472d-a386-11e36a994a1b)
 
 Exploded assembly:
 
-![Exploded](https://i.imgur.com/tRYj8iA.png)
+![FullRenderExploded](https://github.com/user-attachments/assets/48e5b606-043e-456d-8fcd-e841506ee68c)
 
 Frame with shells and accessories:
 
-![Full build](https://i.imgur.com/IBLJHwQ.png)
+![FullRender](https://github.com/user-attachments/assets/f6366cc2-6ae3-4eae-a8d7-08fa32ee549a)
 
 As this was a long time and I did not know any better, I created the 3D models in SketchUp (🤮) and exported them as very very broken STLs. I used Netfabb to fix the models and make them manifold.
 I recommend using Black, White and Clear PLA or ABS plastic at 0.1mm layer height for best results. 
