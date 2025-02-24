@@ -463,7 +463,7 @@ int hpSLfunc (int hp) { //HP SELECT FUNCTION
   if (hp == 0) {
     hp = 100;
     lcd.setCursor(3, 0);
-    lcd.print("100");
+    lcd.print("100"); 
     return hp;
   }
   if (hpST >= (900)) {
